@@ -104,7 +104,7 @@ public class SplashScreenActivity extends Activity implements AddCollectionListe
 	private void startLaunchersActivity(){
 		TimerTask task = new TimerTask() {
 			public void run() {
-				Intent launchersActivity = new Intent( SplashScreenActivity.this, LaunchersActivity.class);
+				Intent launchersActivity = new Intent( SplashScreenActivity.this, BrowseImageActivity.class);
 				startActivity(launchersActivity);
 				finish();
 			}
