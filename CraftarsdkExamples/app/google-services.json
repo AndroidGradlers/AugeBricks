@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "890193662103",
+    "firebase_url": "https://augebricks.firebaseio.com",
+    "project_id": "augebricks",
+    "storage_bucket": "augebricks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890193662103:android:991d22e004ce7237",
+        "android_client_info": {
+          "package_name": "com.catchoom.craftarsdkexamples"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890193662103-0ltcg9g0kcudhh6vjt7q9f3r796brjdp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3VcgXLbVBs82SGR6gEWGThemHX9LJSUk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

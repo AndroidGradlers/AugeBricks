@@ -53,7 +53,10 @@
             android:name=".WebActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".BrowseImageActivity" />
-        <activity android:name=".ProducerConsumerActivity"></activity>
+        <activity android:name=".ProducerConsumerActivity" />
+        <activity android:name=".SellerActivity" />
+        <activity android:name=".SellerLoginActivity" />
+        <activity android:name=".SellerSignUpActivity"></activity>
     </application>
 
 </manifest>
