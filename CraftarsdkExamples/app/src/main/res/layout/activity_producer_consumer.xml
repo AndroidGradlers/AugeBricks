@@ -18,7 +18,7 @@
         android:textOff="Consumer"
         android:textOn="Producer"
         android:textStyle="bold|italic"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:id="@+id/toggle"
         android:padding="10dp"
         android:clickable="true"
@@ -31,7 +31,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="Go"
         android:id="@+id/button"
         android:layout_gravity="center_horizontal"
         android:onClick="pressed"

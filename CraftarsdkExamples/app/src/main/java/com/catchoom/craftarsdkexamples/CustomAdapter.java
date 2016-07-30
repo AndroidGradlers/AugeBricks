@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class CustomAdapter extends ArrayAdapter<String> {
 
     private Context context;
-    private Integer[] ImageResources={R.drawable.ar_programmatically,R.drawable.craftar_c,R.drawable.reco_only};
+    private Integer[] ImageResources={R.drawable.bed,R.drawable.table,R.drawable.sofa};
     //private String[] HeadingNames={"Dog1","Dog2","Dog3","Dog4","Dog5","Dog6","Dog7","Dog8"};
     private String[] Description={"Active","Not Active","Active","Active","Active","Not Active","Not Active","Not Active"};
     CustomAdapter(Context context,String[] Head)
@@ -23,7 +23,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view=inflater.inflate(R.layout.custom_layout, parent, false);
@@ -37,7 +37,9 @@ public class CustomAdapter extends ArrayAdapter<String> {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context,ItemDisplayActivity.class);
+                intent.putExtra("Position",position);
+                context.startActivity(intent);
             }
         });
 
