@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".ARProgrammaticallyActivity"
     android:foreground="@color/bright_foreground_inverse_material_light"
-    android:forceHasOverlappingRendering="true">
+    >
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

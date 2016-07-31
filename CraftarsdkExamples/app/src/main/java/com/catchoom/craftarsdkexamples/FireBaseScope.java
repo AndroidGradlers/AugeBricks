@@ -1,6 +1,7 @@
 package com.catchoom.craftarsdkexamples;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
@@ -91,7 +92,9 @@ public class FireBaseScope {
                         else
                         {
                             //  textView.setText("Welcome "+email_edit_text.getText().toString());
-                            Toast.makeText(context,"Welcome",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context,"Welcome",Toast.LENGTH_SHORT).show();
+                            Intent i =new Intent(context,WelcomeSellerActivity.class);
+                            context.startActivity(i);
                         }
 
                         // ...

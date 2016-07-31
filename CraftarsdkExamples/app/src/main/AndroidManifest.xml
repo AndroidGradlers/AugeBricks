@@ -56,7 +56,9 @@
         <activity android:name=".ProducerConsumerActivity" />
         <activity android:name=".SellerActivity" />
         <activity android:name=".SellerLoginActivity" />
-        <activity android:name=".SellerSignUpActivity"></activity>
+        <activity android:name=".SellerSignUpActivity" />
+        <activity android:name=".WelcomeSellerActivity" />
+        <activity android:name=".ItemDisplayActivity"></activity>
     </application>
 
 </manifest>
