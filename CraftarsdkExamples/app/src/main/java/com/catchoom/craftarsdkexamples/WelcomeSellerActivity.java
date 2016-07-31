@@ -1,38 +1,19 @@
 package com.catchoom.craftarsdkexamples;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
-
 import android.graphics.Bitmap;
-import android.os.BatteryManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Set;
 
 public class WelcomeSellerActivity extends Activity {
 
     Button b1;
+    EditText productname,price;
     ImageView iv;
 
     @Override
@@ -42,6 +23,8 @@ public class WelcomeSellerActivity extends Activity {
 
         b1=(Button)findViewById(R.id.button);
         iv=(ImageView)findViewById(R.id.imageView);
+        productname = (EditText)findViewById(R.id.editText);
+        price = (EditText)findViewById(R.id.editText3);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +49,8 @@ public class WelcomeSellerActivity extends Activity {
     }
 
     public void Submit(View view) {
-        
+        if(productname.getText().length()!=0 && price.getText().length()!=0)
+        Toast.makeText(getApplicationContext(),"Product added successfully!",Toast.LENGTH_LONG).show();
+        else Toast.makeText(getApplicationContext(),"Please Complete the entries first",Toast.LENGTH_LONG).show();
     }
 }

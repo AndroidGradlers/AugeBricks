@@ -11,7 +11,7 @@
     android:background="@color/red_catchoom"
     tools:context="com.catchoom.craftarsdkexamples.ProducerConsumerActivity">
 
-    <ToggleButton
+    +<ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="YOU ARE"
+        android:text="CONTINUE AS"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:id="@+id/textView3"
