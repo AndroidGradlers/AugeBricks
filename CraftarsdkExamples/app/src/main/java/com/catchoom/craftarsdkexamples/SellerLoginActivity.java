@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 public class SellerLoginActivity extends Activity {
 
-    Button btnLogin,btnSignup,btnLogOut;
+    Button btnLogin, btnSignup, btnLogOut;
     TextView textView;
-    EditText email_edit_text,password_edit_text;
+    EditText email_edit_text, password_edit_text;
 
 
     FireBaseScope fireBaseScope;
@@ -20,24 +20,21 @@ public class SellerLoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_login);
-        email_edit_text = (EditText)findViewById(R.id.email_edit_Text);
-        password_edit_text = (EditText)findViewById(R.id.password_edit_text);
+        email_edit_text = (EditText) findViewById(R.id.email_edit_Text);
+        password_edit_text = (EditText) findViewById(R.id.password_edit_text);
 
-        btnLogin=(Button)findViewById(R.id.btnLogin);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
 
 
-        textView=(TextView) findViewById(R.id.textView);
+        textView = (TextView) findViewById(R.id.textView);
         fireBaseScope = new FireBaseScope(SellerLoginActivity.this);
         //sellerFunctions.OnStart();
-
-
-
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fireBaseScope.doLogin(email_edit_text.getText().toString() , password_edit_text.getText().toString());
+                fireBaseScope.doLogin(email_edit_text.getText().toString(), password_edit_text.getText().toString());
             }
         });
     }

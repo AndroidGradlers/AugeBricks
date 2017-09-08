@@ -41,16 +41,16 @@ import java.util.ArrayList;
 
 public class ARFromCraftARActivity extends CraftARActivity implements CraftARSearchResponseHandler, ImageRecognition.SetCollectionListener {
 
-	private final String TAG = "ARFromCraftARActivity";
+    private final String TAG = "ARFromCraftARActivity";
 
-	private View mScanningLayout;
+    private View mScanningLayout;
 
-	CraftARSDK mCraftARSDK;
-	CraftARTracking mTracking;
-	CraftARCloudRecognition mCloudIR;
+    CraftARSDK mCraftARSDK;
+    CraftARTracking mTracking;
+    CraftARCloudRecognition mCloudIR;
 
-	@Override
-	public void onPostCreate() {
+    @Override
+    public void onPostCreate() {
         View mainLayout = getLayoutInflater().inflate(R.layout.activity_ar_programmatically_ar_from_craftar, null);
         setContentView(mainLayout);
         /**
@@ -62,9 +62,8 @@ public class ARFromCraftARActivity extends CraftARActivity implements CraftARSea
         mCraftARSDK = CraftARSDK.Instance();
 
 
-
         mCraftARSDK.init(getApplicationContext());
-        mCraftARSDK.startCapture((CraftARActivity)this);
+        mCraftARSDK.startCapture((CraftARActivity) this);
         /**
          * Get the Cloud Image Recognition instance and set this class
          * as the one to receive search responses.
@@ -84,9 +83,8 @@ public class ARFromCraftARActivity extends CraftARActivity implements CraftARSea
         /**
          * Get the Tracking instance for the AR.
          */
-        mCloudIR.setCollection("b9a268d8bbad4739", (ImageRecognition.SetCollectionListener)this);
+        mCloudIR.setCollection("b9a268d8bbad4739", (ImageRecognition.SetCollectionListener) this);
     }
-
 
 
     @Override
@@ -105,7 +103,7 @@ public class ARFromCraftARActivity extends CraftARActivity implements CraftARSea
          * CraftARSearchResponseHandler previously set to the SDK will be triggered when some results
          * are found.
          */
-       mySearchFunction();
+        mySearchFunction();
     }
 
     @Override
@@ -121,13 +119,13 @@ public class ARFromCraftARActivity extends CraftARActivity implements CraftARSea
     @Override
     public void searchResults(ArrayList<CraftARResult> results, long searchTime, int requestCode) {
         //Call stopFinder() to stop sending queries
-        if(results.size()==0){
-            Log.d(TAG,"Nothing found");
-        }else{
+        if (results.size() == 0) {
+            Log.d(TAG, "Nothing found");
+        } else {
             mCraftARSDK.stopFinder();
             CraftARResult result = results.get(1); //We get only the first result
             CraftARItem item = result.getItem();
-            Log.d(TAG,"Found item "+item.getItemName());
+            Log.d(TAG, "Found item " + item.getItemName());
         }
     }
 
@@ -137,7 +135,7 @@ public class ARFromCraftARActivity extends CraftARActivity implements CraftARSea
          * Called when a search fails. This happens usually when pointing the
          * device to a texture-less surface or when there are connectivity issues.
          */
-        Log.d(TAG,"Search failed : "+craftARError.getErrorMessage());
+        Log.d(TAG, "Search failed : " + craftARError.getErrorMessage());
     }
 
     @Override
@@ -155,9 +153,10 @@ public class ARFromCraftARActivity extends CraftARActivity implements CraftARSea
         //Trigger this function when clicking on a button, for example.
         mCraftARSDK.startFinder();
     }
-	@Override
-	public void onCameraOpenFailed() {
-		Toast.makeText(getApplicationContext(), "Camera error", Toast.LENGTH_SHORT).show();				
-	}
-	
+
+    @Override
+    public void onCameraOpenFailed() {
+        Toast.makeText(getApplicationContext(), "Camera error", Toast.LENGTH_SHORT).show();
+    }
+
 }

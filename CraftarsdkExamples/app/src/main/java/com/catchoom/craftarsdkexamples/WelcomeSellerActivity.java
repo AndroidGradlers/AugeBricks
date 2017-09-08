@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class WelcomeSellerActivity extends Activity {
 
     Button b1;
-    EditText productname,price;
+    EditText productname, price;
     ImageView iv;
 
     @Override
@@ -21,10 +21,10 @@ public class WelcomeSellerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_seller);
 
-        b1=(Button)findViewById(R.id.button);
-        iv=(ImageView)findViewById(R.id.imageView);
-        productname = (EditText)findViewById(R.id.editText);
-        price = (EditText)findViewById(R.id.editText3);
+        b1 = (Button) findViewById(R.id.button);
+        iv = (ImageView) findViewById(R.id.imageView);
+        productname = (EditText) findViewById(R.id.editText);
+        price = (EditText) findViewById(R.id.editText3);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +36,6 @@ public class WelcomeSellerActivity extends Activity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
 
         Bitmap bp = (Bitmap) data.getExtras().get("data");
@@ -49,8 +48,9 @@ public class WelcomeSellerActivity extends Activity {
     }
 
     public void Submit(View view) {
-        if(productname.getText().length()!=0 && price.getText().length()!=0)
-        Toast.makeText(getApplicationContext(),"Product added successfully!",Toast.LENGTH_LONG).show();
-        else Toast.makeText(getApplicationContext(),"Please Complete the entries first",Toast.LENGTH_LONG).show();
+        if (productname.getText().length() != 0 && price.getText().length() != 0)
+            Toast.makeText(getApplicationContext(), "Product added successfully!", Toast.LENGTH_LONG).show();
+        else
+            Toast.makeText(getApplicationContext(), "Please Complete the entries first", Toast.LENGTH_LONG).show();
     }
 }

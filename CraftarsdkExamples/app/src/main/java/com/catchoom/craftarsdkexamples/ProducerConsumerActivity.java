@@ -14,7 +14,7 @@ public class ProducerConsumerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producer_consumer);
-        t = (ToggleButton)findViewById(R.id.toggle);
+        t = (ToggleButton) findViewById(R.id.toggle);
     }
 
     public void clickedToggle(View v)  //When toggleButton clicked
@@ -22,13 +22,11 @@ public class ProducerConsumerActivity extends Activity {
 
     }
 
-    public void pressed(View v)
-    {
-        if(t.getText().toString().equals("Consumer")){
-            startActivity(new Intent(ProducerConsumerActivity.this,BrowseImageActivity.class));
+    public void pressed(View v) {
+        if (t.getText().toString().equals("Consumer")) {
+            startActivity(new Intent(ProducerConsumerActivity.this, BrowseImageActivity.class));
 
-        }
-        else {
+        } else {
             startActivity(new Intent(ProducerConsumerActivity.this, SellerActivity.class));
         }
     }

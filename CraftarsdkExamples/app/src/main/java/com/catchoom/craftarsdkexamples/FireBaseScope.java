@@ -19,7 +19,8 @@ public class FireBaseScope {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private Context context;
-    public FireBaseScope(Context context){
+
+    public FireBaseScope(Context context) {
         this.context = context;
 
         mAuth = FirebaseAuth.getInstance();
@@ -44,9 +45,10 @@ public class FireBaseScope {
 
 
     }
-    public void doSignup(String email,String password){
+
+    public void doSignup(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener((SellerSignUpActivity)context
+                .addOnCompleteListener((SellerSignUpActivity) context
                         , new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -57,11 +59,10 @@ public class FireBaseScope {
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(context,"Authentication failed.",
+                                    Toast.makeText(context, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
-                                }
-                                else {
-                                    Toast.makeText(context,"SignUp Successful!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(context, "SignUp Successful!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -73,9 +74,9 @@ public class FireBaseScope {
         Toast.makeText(context, "Sign out", Toast.LENGTH_LONG);
     }
 
-    public void doLogin(String email, String password){
+    public void doLogin(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener((SellerLoginActivity)context, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener((SellerLoginActivity) context, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d("FireAuth", "signInWithEmail:onComplete:" + task.isSuccessful());
@@ -88,12 +89,10 @@ public class FireBaseScope {
                             Log.w("FireAuth", "signInWithEmail", task.getException());
                             Toast.makeText(context, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
+                        } else {
                             //  textView.setText("Welcome "+email_edit_text.getText().toString());
                             //Toast.makeText(context,"Welcome",Toast.LENGTH_SHORT).show();
-                            Intent i =new Intent(context,WelcomeSellerActivity.class);
+                            Intent i = new Intent(context, WelcomeSellerActivity.class);
                             context.startActivity(i);
                         }
 
@@ -102,11 +101,11 @@ public class FireBaseScope {
                 });
     }
 
-    public void OnStart(){
+    public void OnStart() {
         mAuth.addAuthStateListener(mAuthListener);
     }
 
-    public void OnStop(){
+    public void OnStop() {
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }

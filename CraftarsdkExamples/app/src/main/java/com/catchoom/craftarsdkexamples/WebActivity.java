@@ -32,33 +32,33 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class WebActivity extends Activity implements OnClickListener {
-	private WebView webView1;
+    private WebView webView1;
 
-	public static final String WEB_ACTIVITY_URL="url";
-	
-	@SuppressLint("NewApi")
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_web);
-		webView1 = (WebView) findViewById(R.id.activity_web);
-		webView1.getSettings().setSupportZoom(true);
-		webView1.getSettings().setBuiltInZoomControls(true);
-		if (Build.VERSION.SDK_INT > 11)
-			webView1.getSettings().setDisplayZoomControls(false);
+    public static final String WEB_ACTIVITY_URL = "url";
 
-		webView1.setInitialScale(100);
-		webView1.setWebViewClient(new WebViewClient() {
+    @SuppressLint("NewApi")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_web);
+        webView1 = (WebView) findViewById(R.id.activity_web);
+        webView1.getSettings().setSupportZoom(true);
+        webView1.getSettings().setBuiltInZoomControls(true);
+        if (Build.VERSION.SDK_INT > 11)
+            webView1.getSettings().setDisplayZoomControls(false);
 
-		});
+        webView1.setInitialScale(100);
+        webView1.setWebViewClient(new WebViewClient() {
 
-		Bundle bundle = getIntent().getExtras();
-		webView1.loadUrl(bundle.getString(WEB_ACTIVITY_URL));
-	}
+        });
 
-	@Override
-	public void onClick(View v) {
+        Bundle bundle = getIntent().getExtras();
+        webView1.loadUrl(bundle.getString(WEB_ACTIVITY_URL));
+    }
 
-	}
+    @Override
+    public void onClick(View v) {
+
+    }
 
 }

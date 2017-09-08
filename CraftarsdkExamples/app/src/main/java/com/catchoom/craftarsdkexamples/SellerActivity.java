@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class SellerActivity extends Activity implements View.OnClickListener {
 
-    Button seller_sign_in,seller_sign_up;
+    Button seller_sign_in, seller_sign_up;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +24,20 @@ public class SellerActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
 
             case R.id.seller_sign_in:
                 System.out.println("Activity Switched");
-                Intent i1 = new Intent(this,SellerLoginActivity.class);
+                Intent i1 = new Intent(this, SellerLoginActivity.class);
                 startActivity(i1);
                 break;
 
 
             case R.id.seller_sign_up:
 
-               Intent i2 = new Intent(this,SellerSignUpActivity.class);
+                Intent i2 = new Intent(this, SellerSignUpActivity.class);
                 startActivity(i2);
                 break;
-
-
-
 
 
         }

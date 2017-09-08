@@ -28,112 +28,108 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class LaunchersActivity extends Activity implements OnClickListener {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_launchers);
-		
-		// Setup howto links
-		findViewById(R.id.howto_link).setOnClickListener(this);
-		findViewById(R.id.howto_link_ar_programmatically).setOnClickListener(this);
-		findViewById(R.id.howto_link_ar_from_craftar).setOnClickListener(this);
-		findViewById(R.id.howto_link_recognition_only).setOnClickListener(this);
-		findViewById(R.id.howto_link_on_device_ar).setOnClickListener(this);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_launchers);
 
-		// Setup example links
-		findViewById(R.id.play_ar_programmatically).setOnClickListener(this);
-		findViewById(R.id.play_ar_from_craftar).setOnClickListener(this);
-		findViewById(R.id.play_recognition_only).setOnClickListener(this);
-		findViewById(R.id.play_on_device_ar).setOnClickListener(this);
-		
-		// Setup bottom Links
-		findViewById(R.id.imageButton_logo).setOnClickListener(this);
-		findViewById(R.id.button_signUp).setOnClickListener(this);
-	}
+        // Setup howto links
+        findViewById(R.id.howto_link).setOnClickListener(this);
+        findViewById(R.id.howto_link_ar_programmatically).setOnClickListener(this);
+        findViewById(R.id.howto_link_ar_from_craftar).setOnClickListener(this);
+        findViewById(R.id.howto_link_recognition_only).setOnClickListener(this);
+        findViewById(R.id.howto_link_on_device_ar).setOnClickListener(this);
 
-	@Override
-	public void onClick(View v) {
+        // Setup example links
+        findViewById(R.id.play_ar_programmatically).setOnClickListener(this);
+        findViewById(R.id.play_ar_from_craftar).setOnClickListener(this);
+        findViewById(R.id.play_recognition_only).setOnClickListener(this);
+        findViewById(R.id.play_on_device_ar).setOnClickListener(this);
+
+        // Setup bottom Links
+        findViewById(R.id.imageButton_logo).setOnClickListener(this);
+        findViewById(R.id.button_signUp).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
 
 		/* Check if clicked on title or howto links */
-		Intent launchHowto = null;
-		switch(v.getId()){
-			case R.id.howto_link:
-				launchHowto = new Intent(this, HowToActivity.class);
-				launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto);
-				break;
-			case R.id.howto_link_ar_programmatically:
-				launchHowto = new Intent(this, HowToActivity.class);
-				launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto_ar_programmatically);
-				break;
-			case R.id.howto_link_ar_from_craftar:
-				launchHowto = new Intent(this, HowToActivity.class);
-				launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto_ar_from_craftar);
-				break;
-			case R.id.howto_link_recognition_only:
-				launchHowto = new Intent(this, HowToActivity.class);
-				launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto_recognition_only);
-				break;
-			case R.id.howto_link_on_device_ar:
-				launchHowto = new Intent(this, HowToActivity.class);
-				launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto_on_device_ar);
-				break;
-		}
+        Intent launchHowto = null;
+        switch (v.getId()) {
+            case R.id.howto_link:
+                launchHowto = new Intent(this, HowToActivity.class);
+                launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto);
+                break;
+            case R.id.howto_link_ar_programmatically:
+                launchHowto = new Intent(this, HowToActivity.class);
+                launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto_ar_programmatically);
+                break;
+            case R.id.howto_link_ar_from_craftar:
+                launchHowto = new Intent(this, HowToActivity.class);
+                launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto_ar_from_craftar);
+                break;
+            case R.id.howto_link_recognition_only:
+                launchHowto = new Intent(this, HowToActivity.class);
+                launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto_recognition_only);
+                break;
+            case R.id.howto_link_on_device_ar:
+                launchHowto = new Intent(this, HowToActivity.class);
+                launchHowto.putExtra(HowToActivity.HOWTO_LAYOUT_EXTRA, R.layout.activity_howto_on_device_ar);
+                break;
+        }
 
-		if (launchHowto != null) {
-			startActivity(launchHowto);
-			return;
-		}
+        if (launchHowto != null) {
+            startActivity(launchHowto);
+            return;
+        }
 
 		/* Check if clicked on play links */
 
-		Intent playExampleIntent = null;
+        Intent playExampleIntent = null;
 
-		switch(v.getId()){
-			case R.id.play_ar_programmatically:
-				playExampleIntent = new Intent(this, ARProgrammaticallyActivity.class);
-				break;
-			case R.id.play_ar_from_craftar:
-				playExampleIntent = new Intent(this, ARFromCraftARActivity.class);
-				break;
-			case R.id.play_recognition_only:
-				playExampleIntent = new Intent(this, RecognitionOnlyActivity.class);
-				break;
-			case R.id.play_on_device_ar:
-				playExampleIntent = new Intent(this, OnDeviceARActivity.class);
-				break;
-		}
+        switch (v.getId()) {
+            case R.id.play_ar_programmatically:
+                playExampleIntent = new Intent(this, ARProgrammaticallyActivity.class);
+                break;
+            case R.id.play_ar_from_craftar:
+                playExampleIntent = new Intent(this, ARFromCraftARActivity.class);
+                break;
+            case R.id.play_recognition_only:
+                playExampleIntent = new Intent(this, RecognitionOnlyActivity.class);
+                break;
+            case R.id.play_on_device_ar:
+                playExampleIntent = new Intent(this, OnDeviceARActivity.class);
+                break;
+        }
 
-		if (playExampleIntent != null) {
-			startActivity(playExampleIntent);
-			return;
-		}
+        if (playExampleIntent != null) {
+            startActivity(playExampleIntent);
+            return;
+        }
 
 		/* Check if clicked on bottom links */
-		Intent launchWebView = null;
+        Intent launchWebView = null;
 
-		switch(v.getId()){
-			case R.id.imageButton_logo:
-				launchWebView = new Intent(this, WebActivity.class);
-				launchWebView.putExtra(WebActivity.WEB_ACTIVITY_URL, "http://catchoom.com/product/?utm_source=CraftARExamplesApp&amp;utm_medium=Android&amp;utm_campaign=HelpWithAPI");
-				break;
-			case R.id.button_signUp:
-				launchWebView = new Intent(this, WebActivity.class);
-				launchWebView.putExtra(WebActivity.WEB_ACTIVITY_URL, "https://crs.catchoom.com/try-free?utm_source=CraftARExamplesApp&amp;utm_medium=Android&amp;utm_campaign=HelpWithAPI");
-				break;
-		}
+        switch (v.getId()) {
+            case R.id.imageButton_logo:
+                launchWebView = new Intent(this, WebActivity.class);
+                launchWebView.putExtra(WebActivity.WEB_ACTIVITY_URL, "http://catchoom.com/product/?utm_source=CraftARExamplesApp&amp;utm_medium=Android&amp;utm_campaign=HelpWithAPI");
+                break;
+            case R.id.button_signUp:
+                launchWebView = new Intent(this, WebActivity.class);
+                launchWebView.putExtra(WebActivity.WEB_ACTIVITY_URL, "https://crs.catchoom.com/try-free?utm_source=CraftARExamplesApp&amp;utm_medium=Android&amp;utm_campaign=HelpWithAPI");
+                break;
+        }
 
 
-		if (launchWebView != null) {
-			startActivity(launchWebView);
-			return;
-		}
-	}
+        if (launchWebView != null) {
+            startActivity(launchWebView);
+            return;
+        }
+    }
 }

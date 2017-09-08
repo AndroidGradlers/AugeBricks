@@ -38,36 +38,27 @@ import com.craftar.CraftARTracking;
 
 public class OnDeviceARActivity extends CraftARActivity {
 
-	private final String TAG = "OnDeviceARActivity";
+    private final String TAG = "OnDeviceARActivity";
 
-	CraftARTracking mTracking;
-	CraftARSDK mCraftARSDK;
+    CraftARTracking mTracking;
+    CraftARSDK mCraftARSDK;
     CraftAROnDeviceCollectionManager mCollectionManager;
     CraftAROnDeviceCollection mCollection;
     private Toast mToast;
     private View mScanningLayout;
 
     @Override
-	public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        CraftAROnDeviceCollectionManager collectionManager =
-//                CraftAROnDeviceCollectionManager.Instance();
-//        CraftAROnDeviceCollection collection = collectionManager.get("bf6e85d7656030e570b67e5f362e52148f2c3448");
-//        if (collection != null) {
-//            // Collection is already added to the device
-//        } else {
-//            // Add the collection to the local database
-//            collectionManager.addCollection("arbundle.zip", (CraftAROnDeviceCollectionManager.AddCollectionListener) this);
-//        }
-//        collection.sync((CraftAROnDeviceCollectionManager.SyncCollectionListener)this);
+
 
     }
-		
-	@Override
-	public void onPostCreate() {
-		
-		View mainLayout= getLayoutInflater().inflate(R.layout.activity_ar_programmatically_ar_from_craftar, null);
-		setContentView(mainLayout);
+
+    @Override
+    public void onPostCreate() {
+
+        View mainLayout = getLayoutInflater().inflate(R.layout.activity_ar_programmatically_ar_from_craftar, null);
+        setContentView(mainLayout);
 
         mScanningLayout = findViewById(R.id.layout_scanning);
         mScanningLayout.setVisibility(View.GONE);
@@ -75,35 +66,35 @@ public class OnDeviceARActivity extends CraftARActivity {
         /**
          * Get the CraftAR SDK instance and start capturing
          */
-		mCraftARSDK = CraftARSDK.Instance();
-		mCraftARSDK.startCapture(this);
+        mCraftARSDK = CraftARSDK.Instance();
+        mCraftARSDK.startCapture(this);
         /**
          * Get the instance of the Tracking
          */
-		mTracking = CraftARTracking.Instance();
-		
-	}
+        mTracking = CraftARTracking.Instance();
+
+    }
 
 
     @Override
-    public void onPreviewStarted(int width,int height){
+    public void onPreviewStarted(int width, int height) {
 
-        mCollection =  CraftAROnDeviceCollectionManager.Instance().get(Config.MY_COLLECTION_TOKEN);
+        mCollection = CraftAROnDeviceCollectionManager.Instance().get(Config.MY_COLLECTION_TOKEN);
         /**
          * As the on-device collection is already in the device (we did it in the Splash Screen), we will add the collection items
          * to the tracking and start the AR experience.
          */
         loadCollection();
- 
+
     }
 
     private void loadCollection() {
         // Get all item UUIDs in the collection
-        for(String itemUUID: mCollection.listItems()){
+        for (String itemUUID : mCollection.listItems()) {
             // Get the item and check that it is an AR item
             CraftARItem item = mCollection.getItem(itemUUID);
-            if(item.isAR()){
-                CraftARItemAR itemAR = (CraftARItemAR)item;
+            if (item.isAR()) {
+                CraftARItemAR itemAR = (CraftARItemAR) item;
                 CraftARError error = mTracking.addItem(itemAR);
                 if (error != null) {
                     showToast(error.getErrorMessage(), Toast.LENGTH_SHORT);
@@ -118,7 +109,7 @@ public class OnDeviceARActivity extends CraftARActivity {
         if (mToast != null) {
             mToast.cancel();
         }
-        mToast = Toast.makeText(getApplicationContext(), toastText,	toastDuration);
+        mToast = Toast.makeText(getApplicationContext(), toastText, toastDuration);
         mToast.show();
 
     }
@@ -133,9 +124,9 @@ public class OnDeviceARActivity extends CraftARActivity {
         super.finish();
     }
 
-	@Override
-	public void onCameraOpenFailed() {
-		Toast.makeText(getApplicationContext(), "Camera error", Toast.LENGTH_SHORT).show();				
-		
-	}
+    @Override
+    public void onCameraOpenFailed() {
+        Toast.makeText(getApplicationContext(), "Camera error", Toast.LENGTH_SHORT).show();
+
+    }
 }
